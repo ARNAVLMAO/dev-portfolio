@@ -7,7 +7,7 @@ import { MotionArticleCard } from "@/components/MotionWrappers";
 export const metadata: Metadata = {
   title: "Tech Recs — Computed",
   description:
-    "Honest opinions on stuff you might actually buy. I test it, I use it for real, then I tell you if it's worth it.",
+    "Honest opinions on stuff you might actually buy. Deep dives into tech, developer workflows, and tools worth looking into.",
 };
 
 export const dynamic = 'force-dynamic';
