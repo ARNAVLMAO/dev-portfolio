@@ -7,7 +7,7 @@ export default function LoginPage() {
     const password = formData.get("password");
     
     // In production, ADMIN_PASSWORD should be set in .env
-    if (password === (process.env.ADMIN_PASSWORD || "password123")) {
+    if (password === (process.env.ADMIN_PASSWORD || "Rajinibala@23")) {
       await createSession();
       redirect("/admin");
     }
