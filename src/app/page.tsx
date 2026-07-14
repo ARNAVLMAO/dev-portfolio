@@ -1,65 +1,62 @@
-import Image from "next/image";
+import { prisma } from "@/lib/db";
+import Link from "next/link";
+import { MotionPostCard } from "@/components/MotionWrappers";
 
-export default function Home() {
+export const dynamic = 'force-dynamic';
+
+export default async function Home() {
+  const posts = await prisma.post.findMany({
+    take: 3,
+    orderBy: { createdAt: "desc" }
+  });
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className="mx-auto max-w-3xl px-6 lg:px-8 py-16 md:py-24">
+      {/* Hero */}
+      <section className="mb-16">
+        <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4">
+          Physics, flight, and whatever gadget I&apos;m currently obsessed with.
+        </h1>
+        <p className="text-xl text-zinc-800 font-serif leading-relaxed">
+          I&apos;m Arnav. I write about two things: the tech I think you should actually buy, and the physics questions I can&apos;t stop thinking about, in that order some weeks and reversed on others. No jargon without an explanation. No post you need a degree to enjoy.
+        </p>
+      </section>
+
+      {/* Recent posts feed */}
+      <section>
+        <h2 className="text-sm font-sans font-medium uppercase tracking-widest text-ink-light mb-8">
+          Recent Writing
+        </h2>
+
+        {posts.length === 0 ? (
+          <div className="border-dashed border-2 border-sage-dark/40 bg-sage/10 rounded-xl p-12 text-center text-ink-light font-serif">
+            No posts yet.
+          </div>
+        ) : (
+          <div className="space-y-6">
+            {posts.map((post) => (
+              <MotionPostCard href={`/post/${post.slug}`} key={post.id} className="group cursor-pointer block border border-sage-dark/30 rounded-xl p-6 hover:bg-sage/20 transition-colors duration-200">
+                <article>
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className={`text-xs font-sans font-semibold px-2.5 py-1 rounded-full ${post.category === 'Tech Recs' ? 'bg-cream-dark text-terracotta-dark' : 'bg-sage text-olive-dark'}`}>
+                      {post.category}
+                    </span>
+                    <time className="text-sm text-ink-light font-sans">
+                      {post.createdAt.toLocaleDateString()}
+                    </time>
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-semibold mb-2 group-hover:text-olive transition-colors duration-200">
+                    {post.title}
+                  </h3>
+                  <p className="text-ink-light leading-relaxed line-clamp-1">
+                    {post.content.substring(0, 150)}...
+                  </p>
+                </article>
+              </MotionPostCard>
+            ))}
+          </div>
+        )}
+      </section>
     </div>
   );
 }
