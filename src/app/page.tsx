@@ -17,7 +17,7 @@ export default async function Home() {
       <div className="relative z-10 mx-auto max-w-3xl px-6 lg:px-8 py-24 md:py-32 flex flex-col items-center text-center text-white">
         {/* Hero */}
         <section className="mb-16 max-w-2xl">
-          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6 text-white">
+          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6 text-white opacity-100">
             Physics, flight, and whatever gadget I&apos;m currently obsessed with.
           </h1>
           <p className="text-xl font-serif leading-relaxed text-zinc-200">
