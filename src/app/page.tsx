@@ -18,7 +18,7 @@ export default async function Home() {
         {/* Hero */}
         <section className="mb-16 max-w-2xl">
           <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6 !text-white drop-shadow-lg">
-            Physics, flight, and whatever gadget I&apos;m currently obsessed with.
+            Physics, flight, and whatever tech I&apos;m currently obsessed with.
           </h1>
           <p className="text-xl font-serif leading-relaxed text-zinc-200">
             I&apos;m Arnav. I write about two things: the tech I think you should actually buy, and the physics questions I can&apos;t stop thinking about, in that order some weeks and reversed on others. No jargon without an explanation. No post you need a degree to enjoy.
@@ -27,7 +27,7 @@ export default async function Home() {
 
         {/* Recent posts feed */}
         <section className="w-full text-left">
-          <h2 className="text-sm font-sans font-medium uppercase tracking-widest text-zinc-300 mb-8 text-center">
+          <h2 className="text-sm font-sans font-medium uppercase tracking-widest !text-zinc-200 drop-shadow-md mb-8 text-center">
             Recent Writing
           </h2>
 
