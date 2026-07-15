@@ -17,7 +17,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Computed — a blog by a 17-year-old",
+  title: "computed",
   description:
     "Thoughts on technology, physics, and everything in between. Written plainly, without jargon.",
 };

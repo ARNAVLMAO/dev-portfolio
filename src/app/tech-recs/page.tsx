@@ -24,7 +24,7 @@ export default async function TechRecs() {
         Tech Recs
       </h1>
       <p className="text-xl text-zinc-800 font-serif leading-relaxed mb-12 max-w-xl">
-        Honest opinions on stuff you might actually buy. I test it, I use it for real, then I tell you if it&apos;s worth it.
+        Honest opinions on stuff you might actually buy, deep dives into tech, developer workflows, and tools worth looking into
       </p>
 
       <div className="space-y-12">
