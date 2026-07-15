@@ -1,6 +1,5 @@
 import { prisma } from "@/lib/db";
 import Link from "next/link";
-import Image from "next/image";
 import { MotionPostCard } from "@/components/MotionWrappers";
 
 export const dynamic = 'force-dynamic';
@@ -14,24 +13,13 @@ export default async function Home() {
   return (
     <div className="mx-auto max-w-3xl px-6 lg:px-8 py-16 md:py-24">
       {/* Hero */}
-      <section className="mb-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <div>
-          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4">
-            Tech Notes
-          </h1>
-          <p className="text-xl text-zinc-800 font-serif leading-relaxed">
-            I&apos;m Arnav. I write about two things: the tech I think you should actually buy, and the physics questions I can&apos;t stop thinking about, in that order some weeks and reversed on others. No jargon without an explanation. No post you need a degree to enjoy.
-          </p>
-        </div>
-        <div className="relative aspect-[4/3] w-full">
-          <Image
-            src="/spacex.avif"
-            alt="SpaceX"
-            fill
-            priority
-            className="rounded-2xl object-cover border border-zinc-200 dark:border-zinc-800"
-          />
-        </div>
+      <section className="mb-16">
+        <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4">
+          Physics, flight, and whatever gadget I&apos;m currently obsessed with.
+        </h1>
+        <p className="text-xl text-zinc-800 font-serif leading-relaxed">
+          I&apos;m Arnav. I write about two things: the tech I think you should actually buy, and the physics questions I can&apos;t stop thinking about, in that order some weeks and reversed on others. No jargon without an explanation. No post you need a degree to enjoy.
+        </p>
       </section>
 
       {/* Recent posts feed */}
