@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/db";
 import Link from "next/link";
 import { MotionPostCard } from "@/components/MotionWrappers";
+import Linkify from "react-linkify";
 
 export const dynamic = 'force-dynamic';
 
@@ -52,7 +53,13 @@ export default async function Home() {
                       {post.title}
                     </h3>
                     <p className="text-zinc-300 leading-relaxed line-clamp-1">
-                      {post.content.substring(0, 150)}...
+                      <Linkify componentDecorator={(decoratedHref, decoratedText, key) => (
+                          <a target="_blank" rel="noopener noreferrer" href={decoratedHref} key={key} className="text-olive hover:text-olive-dark underline transition-colors" onClick={(e) => e.stopPropagation()}>
+                            {decoratedText}
+                          </a>
+                        )}>
+                        {post.content.substring(0, 150)}...
+                      </Linkify>
                     </p>
                   </article>
                 </MotionPostCard>
