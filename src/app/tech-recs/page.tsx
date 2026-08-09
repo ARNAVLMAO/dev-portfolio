@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { prisma } from "@/lib/db";
-import ReactMarkdown from "react-markdown";
+import { Markdown } from "@/components/Markdown";
 import Link from "next/link";
 import { MotionArticleCard } from "@/components/MotionWrappers";
 
@@ -45,7 +45,7 @@ export default async function TechRecs() {
               </header>
               
               <div className="prose-custom text-ink-light leading-relaxed space-y-4 mb-6 line-clamp-4">
-                <ReactMarkdown>{post.content}</ReactMarkdown>
+                <Markdown>{post.content}</Markdown>
               </div>
 
               <div className="flex items-center gap-3 pt-4 border-t border-sage-dark/30">

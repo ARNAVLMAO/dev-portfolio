@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { prisma } from "@/lib/db";
-import ReactMarkdown from "react-markdown";
+import { Markdown } from "@/components/Markdown";
 import Link from "next/link";
 import { MotionArticleCard } from "@/components/MotionWrappers";
 
@@ -45,7 +45,7 @@ export default async function Physics() {
               </header>
 
               <div className="prose-custom text-ink-light leading-relaxed space-y-6 line-clamp-[8]">
-                <ReactMarkdown>{post.content}</ReactMarkdown>
+                <Markdown>{post.content}</Markdown>
               </div>
               
               <div className="mt-6">

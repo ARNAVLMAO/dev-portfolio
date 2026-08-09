@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/db";
 import { notFound } from "next/navigation";
-import ReactMarkdown from "react-markdown";
+import { Markdown } from "@/components/Markdown";
 import Link from "next/link";
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -33,7 +33,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         </h1>
       </header>
       <div className="prose-custom text-lg text-ink-light leading-relaxed space-y-6">
-        <ReactMarkdown>{post.content}</ReactMarkdown>
+        <Markdown>{post.content}</Markdown>
       </div>
     </div>
   );
