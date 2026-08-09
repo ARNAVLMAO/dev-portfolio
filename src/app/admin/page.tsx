@@ -32,9 +32,14 @@ export default async function AdminDashboard() {
                   </span>
                 </div>
               </div>
-              <Link href={`/post/${post.slug}`} className="text-sm font-medium border border-sage-dark/50 text-ink-light hover:text-ink px-3 py-1.5 rounded-md transition-colors">
-                View Live
-              </Link>
+              <div className="flex items-center gap-2">
+                <Link href={`/admin/edit/${post.id}`} className="text-sm font-medium border border-olive/50 text-olive hover:bg-olive hover:!text-cream px-3 py-1.5 rounded-md transition-colors">
+                  Edit
+                </Link>
+                <Link href={`/post/${post.slug}`} className="text-sm font-medium border border-sage-dark/50 text-ink-light hover:text-ink px-3 py-1.5 rounded-md transition-colors">
+                  View Live
+                </Link>
+              </div>
             </div>
           ))}
         </div>
