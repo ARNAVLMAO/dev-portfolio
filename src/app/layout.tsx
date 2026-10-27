@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Lora, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
+import ViewCounter from "@/components/ViewCounter";
 import Link from "next/link";
 import "./globals.css";
 
@@ -33,6 +34,7 @@ export default function RootLayout({
       className={`${lora.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-screen flex flex-col" suppressHydrationWarning>
+        <ViewCounter />
         <Navbar />
         <main className="flex-1">{children}</main>
         <footer className="border-t border-sage-dark/50 py-8 mt-16">

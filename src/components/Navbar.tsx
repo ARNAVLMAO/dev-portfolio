@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import ViewCounter from "@/components/ViewCounter";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -39,19 +38,13 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-sage-dark/50">
       <div className="mx-auto max-w-3xl px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          {/* Blog name + view counter */}
-          <div className="flex items-center gap-3">
-            <Link
-              href="/"
-              className="font-sans text-xl font-semibold tracking-tight text-ink hover:text-olive transition-colors duration-200"
-            >
-              Computed
-            </Link>
-            <span className="hidden sm:inline-block w-px h-4 bg-sage-dark/40" />
-            <span className="hidden sm:inline-block">
-              <ViewCounter />
-            </span>
-          </div>
+          {/* Blog name */}
+          <Link
+            href="/"
+            className="font-sans text-xl font-semibold tracking-tight text-ink hover:text-olive transition-colors duration-200"
+          >
+            Computed
+          </Link>
 
           {/* Desktop navigation */}
           <div className="hidden md:flex md:items-center md:gap-1">
